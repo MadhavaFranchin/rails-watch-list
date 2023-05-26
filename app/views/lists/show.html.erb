@@ -1,0 +1,21 @@
+<ul>
+  <% @list.bookmarks.each do |bookmark| %>
+    <div class="card text-center card mx-auto" style="width: 18rem; list-style-type: none;">
+      <img class="card-img-top" src="..." alt="Card image cap">
+      <div class="mt-5 pt-5">
+        <h2>Title</h2>
+        <li><%= bookmark.movie.title %></li>
+        <h4>Description</h4>
+        <li><%= bookmark.movie.overview %></li>
+      </div>
+    <% end %>
+  </ul>
+</div>
+<%= simple_form_for([@list, @bookmark]) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <%= f.association :movie %>
+  <%= f.input :comment %>
+  <%= f.submit "Add" %>
+<% end %>
+<%= link_to "back to movies list", lists_path %>

@@ -1,0 +1,23 @@
+<div class="container">
+<div class="list-group">
+  <ul>
+    <% @list.each do |list| %>
+      <li>
+        <i class="fa-solid fa-hand-middle-finger fa-bounce list-group-item list-group-item-action">
+        </i>
+        <div class="list-group-item list-group-item-action"><button type="button" class="btn btn-success"> <%= link_to list.name, list_path(list) %></button>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<button type="button" class="btn btn-danger"><%= link_to "Add new list", new_list_path %></button>
+</div>
+
+<%# <div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action">
+    Cras justo odio
+  </a>
+  <a href="#" class=""></a>
+  <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+  <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+  <a href="#" class="list-group-item list-group-item-action">Vestibulum at eros</a> %>
